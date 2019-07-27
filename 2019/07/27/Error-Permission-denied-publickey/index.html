@@ -6,20 +6,23 @@
     
 
     
-    <title>123 | Zyh&#39;s site</title>
+    <title>Error: Permission denied (publickey) | Zyh&#39;s site</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content>
     
-    <meta property="og:type" content="article">
-<meta property="og:title" content="123">
-<meta property="og:url" content="http://sduzhang.cn/2019/07/27/123/index.html">
+    <meta name="description" content="这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。 在使用hexo d命令时，命令行报错Error: Permission denied (publickey)，我很确定公钥已经正确放在github上，纠结了好久不知道是哪里出了问题。 今天我在github help上找到了这个问题的解释，官方文档上提示，如果没有使用 sudo 命令生成密钥，然后尝试sudo git push，此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Error: Permission denied (publickey)">
+<meta property="og:url" content="http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/index.html">
 <meta property="og:site_name" content="Zyh&#39;s site">
+<meta property="og:description" content="这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。 在使用hexo d命令时，命令行报错Error: Permission denied (publickey)，我很确定公钥已经正确放在github上，纠结了好久不知道是哪里出了问题。 今天我在github help上找到了这个问题的解释，官方文档上提示，如果没有使用 sudo 命令生成密钥，然后尝试sudo git push，此">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T02:30:45.157Z">
+<meta property="og:updated_time" content="2019-07-27T03:31:48.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="123">
+<meta name="twitter:title" content="Error: Permission denied (publickey)">
+<meta name="twitter:description" content="这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。 在使用hexo d命令时，命令行报错Error: Permission denied (publickey)，我很确定公钥已经正确放在github上，纠结了好久不知道是哪里出了问题。 今天我在github help上找到了这个问题的解释，官方文档上提示，如果没有使用 sudo 命令生成密钥，然后尝试sudo git push，此">
     
 
     
@@ -75,7 +78,7 @@
                                     <a class="main-nav-list-link" href="/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活/">生活</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/论文学习/">论文学习</a></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/论文学习/">论文学习</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">关于</a>
@@ -134,19 +137,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/技术/">技术</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-123" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Error-Permission-denied-publickey" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        123
+        Error: Permission denied (publickey)
         </h1>
     
 
@@ -156,8 +159,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/07/27/123/" class="article-date">
-            <time datetime="2019-07-27T02:30:45.000Z" itemprop="datePublished">2019-07-27</time>
+        <a href="/2019/07/27/Error-Permission-denied-publickey/" class="article-date">
+            <time datetime="2019-07-27T03:08:21.000Z" itemprop="datePublished">2019-07-27</time>
         </a>
     </div>
 
@@ -168,14 +171,19 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <p>这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。</p>
+<p>在使用<code>hexo d</code>命令时，命令行报错<code>Error: Permission denied (publickey)</code>，我很确定公钥已经正确放在<code>github</code>上，纠结了好久不知道是哪里出了问题。</p>
+<p>今天我在<code>github help</code>上找到了这个问题的解释，官方文档上提示，如果没有使用 <code>sudo</code> 命令生成密钥，然后尝试<code>sudo git push</code>，此时使用的秘钥不是你想要使用的密钥，而应该是你用<code>sudo</code>命令生成的密钥。</p>
+<p>我突然发现自己经常习惯使用<code>sudo</code>命令对文件进行各种操作，权限不够时直接将文件修改为777，导致很多文件的权限是混乱的。自己还是对Linux一无所知啊…</p>
+<p>今天又花了一上午的时间将项目重新移植，幸好项目文件不大，要不然真的要吐血了。</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://sduzhang.cn/2019/07/27/123/" data-id="cjykydyds0000stgohxirbkrt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/" data-id="cjykzak940002l5govjneithi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -245,16 +253,18 @@
             "@type": "Person",
             "name": "Zyh"
         },
-        "headline": "123",
+        "headline": "Error: Permission denied (publickey)",
         "image": "http://sduzhang.cn",
         "keywords": "",
-        "genre": "",
+        "genre": "技术",
         "datePublished": "2019-07-27",
         "dateCreated": "2019-07-27",
         "dateModified": "2019-07-27",
-        "url": "http://sduzhang.cn/2019/07/27/123/",
-        "description": ""
-        "wordCount": 1
+        "url": "http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/",
+        "description": "这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。
+在使用hexo d命令时，命令行报错Error: Permission denied (publickey)，我很确定公钥已经正确放在github上，纠结了好久不知道是哪里出了问题。
+今天我在github help上找到了这个问题的解释，官方文档上提示，如果没有使用 sudo 命令生成密钥，然后尝试sudo git push，此"
+        "wordCount": 10
     }
 </script>
 
@@ -311,9 +321,9 @@
 <nav id="article-nav">
     
     
-        <a href="/2019/07/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/07/16/AttackOnDL/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Hello World</p>
+        <p class="article-nav-title">对抗环境下深度学习的局限性</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -345,18 +355,9 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/27/123/" class="title">123</a></p>
-                            <p class="item-date"><time datetime="2019-07-27T02:30:45.000Z" itemprop="datePublished">2019-07-27</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/27/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2019-07-27T02:19:21.145Z" itemprop="datePublished">2019-07-27</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a></p>
+                            <p class="item-title"><a href="/2019/07/27/Error-Permission-denied-publickey/" class="title">Error: Permission denied (publickey)</a></p>
+                            <p class="item-date"><time datetime="2019-07-27T03:08:21.000Z" itemprop="datePublished">2019-07-27</time></p>
                         </div>
                     </li>
                 
@@ -396,7 +397,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文学习/">论文学习</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文学习/">论文学习</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -406,7 +407,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -468,7 +469,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://sduzhang.cn/2019/07/27/123/';
+    var disqus_url = 'http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/';
     
     (function() {
     var dsq = document.createElement('script');
