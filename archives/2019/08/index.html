@@ -171,10 +171,9 @@
         <p class="article-excerpt">
             最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。
 论文针对GPU上的AES实现，提出了一种攻击方式。
-（1）所需要的前提为大量的AES密文和对应加密的时间。
-（2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。
-
-（3）将
+首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。
+{:height=”250px”}
+攻击过程如下：（1）获得设备加密的大量的AE
         </p>
     </div>
 </article>
