@@ -6,17 +6,25 @@
     
 
     
-    <title>分类: 论文学习 | Zyh&#39;s site</title>
+    <title>复现AES时序攻击 | Zyh&#39;s site</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Zyh&#39;s site">
-<meta property="og:url" content="http://sduzhang.cn/categories/论文学习/index.html">
+        <meta name="keywords" content>
+    
+    <meta name="description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文针对GPU上的AES实现，提出了一种攻击方式。 （1）所需要的前提为大量的AES密文和对应加密的时间。 （2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。  （3）将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复现AES时序攻击">
+<meta property="og:url" content="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/index.html">
 <meta property="og:site_name" content="Zyh&#39;s site">
+<meta property="og:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文针对GPU上的AES实现，提出了一种攻击方式。 （1）所需要的前提为大量的AES密文和对应加密的时间。 （2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。  （3）将">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sduzhang.cn/images/cachelinecnt.png">
+<meta property="og:updated_time" content="2019-08-05T11:32:05.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zyh&#39;s site">
+<meta name="twitter:title" content="复现AES时序攻击">
+<meta name="twitter:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文针对GPU上的AES实现，提出了一种攻击方式。 （1）所需要的前提为大量的AES密文和对应加密的时间。 （2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。  （3）将">
+<meta name="twitter:image" content="http://sduzhang.cn/images/cachelinecnt.png">
     
 
     
@@ -131,157 +139,153 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>分类: <em class="page-title-link">论文学习</em>
+    <a class="page-title-link" href="/categories/论文学习/">论文学习</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-cachelinecnt-timing-attack" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/论文学习/">论文学习</a>
-            </div>
-            <div class="date"><time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/08/05/cachelinecnt-timing-attack/">复现AES时序攻击</a>
+        复现AES时序攻击
         </h1>
     
 
-        <p class="article-excerpt">
-            最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/08/05/cachelinecnt-timing-attack/" class="article-date">
+            <time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。</p>
+<p>论文针对GPU上的AES实现，提出了一种攻击方式。</p>
+<p>（1）所需要的前提为大量的AES密文和对应加密的时间。</p>
+<p>（2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。</p>
+<p><img src="/images/cachelinecnt.png" alt></p>
+<p>（3）将得到的cachelinecnt数与对应的加密时间作为两个变量，计算皮尔逊相关系数，相关性最高的猜测字节即为原始密钥的对应字节。</p>
+<p><img src="/images/cachelinecnt_ans.png" alt></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="cjyybez4k0003b6goazxmzauv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Zyh"
+        },
+        "headline": "复现AES时序攻击",
+        "image": "http://sduzhang.cn/images/cachelinecnt.png",
+        "keywords": "",
+        "genre": "论文学习",
+        "datePublished": "2019-08-05",
+        "dateCreated": "2019-08-05",
+        "dateModified": "2019-08-05",
+        "url": "http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/",
+        "description": "最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。
 论文针对GPU上的AES实现，提出了一种攻击方式。
 （1）所需要的前提为大量的AES密文和对应加密的时间。
 （2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。
 
-（3）将
-        </p>
-    </div>
+（3）将"
+        "wordCount": 15
+    }
+</script>
+
 </article>
-    
 
+    <section id="comments">
     
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/论文学习/">论文学习</a>
-            </div>
-            <div class="date"><time datetime="2019-07-16T03:21:09.000Z" itemprop="datePublished">2019-07-16</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/07/16/AttackOnDL/">对抗环境下深度学习的局限性</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            论文 The Limitations of Deep Learning in Adversarial Settings论文源地址
-
-
-这是一篇16年发表在S&amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。
-
-论文的前提为知道神经网络的结构和权重
-
-从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数
-生成对抗显著图，得到图像中点对不同分类预测的影
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
-        </div>
-    
 
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/论文学习/">论文学习</a>
-            </div>
-            <div class="date"><time datetime="2019-07-11T10:55:27.000Z" itemprop="datePublished">2019-07-11</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/07/11/a164-Dinakarrao/">对基于HPC数据进行分析的HMD的攻击</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            写在前面由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。
-在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。
-我认为在学习过程中学习方法是件很重要的事，及时吸取经
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/论文学习/">论文学习</a>
-            </div>
-            <div class="date"><time datetime="2019-07-10T02:48:33.000Z" itemprop="datePublished">2019-07-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/07/10/MalGAN/">MalGAN</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            写在前面今天开始进行人工智能安全方面的学习，首先是找了白皮书来看，在白皮书里提到了这篇论文，于是在这里对这篇论文进行翻译，通过这种方式对论文进行阅读和理解。
-由于要开始找题做项目，所以这篇的翻译就到此为止，这篇半成品也算是给自己留作纪念，虽然翻译的过程费了时间，不过也不是没有收获，尽管翻得不好，但是在这个过程中对一些知识有了最基本的认识，借机看了GAN，感觉还是对自己比较满意的。
-尽管我没翻完，但
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
+    </section>
 
 
 
@@ -311,6 +315,19 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/07/27/Error-Permission-denied-publickey/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Error: Permission denied (publickey)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -460,11 +477,13 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

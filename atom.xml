@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sduzhang.cn/"/>
-  <updated>2019-07-29T01:28:31.852Z</updated>
+  <updated>2019-08-05T11:32:05.953Z</updated>
   <id>http://sduzhang.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>复现AES时序攻击</title>
+    <link href="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/"/>
+    <id>http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/</id>
+    <published>2019-08-05T10:57:47.000Z</published>
+    <updated>2019-08-05T11:32:05.953Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。</p><p>论文针对GPU上的AES实现，提出了一种攻击方式。</p><p>（1）所需要的前提为大量的AES密文和对应加密的时间。</p><p>（2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。</p><p><img src="/images/cachelinecnt.png" alt></p><p>（3）将得到的cachelinecnt数与对应的加密时间作为两个变量，计算皮尔逊相关系数，相关性最高的猜测字节即为原始密钥的对应字节。</p><p><img src="/images/cachelinecnt_ans.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU，然后打算和学长一起复现一下这篇论文提出的攻击方法。&lt;/p&gt;
+&lt;p&gt;论文针对GPU上的AES实现，提出了一种攻击方式。&lt;/p&gt;
+&lt;p&gt;（1）所需要的前提为大量的A
+      
+    
+    </summary>
+    
+      <category term="论文学习" scheme="http://sduzhang.cn/categories/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Error: Permission denied (publickey)</title>
