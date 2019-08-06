@@ -20,7 +20,7 @@
 <meta property="og:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sduzhang.cn/images/cachelinecnt_motivation.png">
-<meta property="og:updated_time" content="2019-08-06T02:16:42.392Z">
+<meta property="og:updated_time" content="2019-08-06T06:59:35.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="复现AES时序攻击">
 <meta name="twitter:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
@@ -177,14 +177,14 @@
 <p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7446081" target="_blank" rel="noopener">论文源地址</a></p>
 <p>论文针对GPU上的AES实现，提出了一种攻击方式。</p>
 <p>首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。</p>
-<img src="/images/cachelinecnt_motivation.png" width="250px" height="250px">
+<img src="/images/cachelinecnt_motivation.png" width="350px" height="350px">
 
 <h4 id="攻击过程如下："><a href="#攻击过程如下：" class="headerlink" title="攻击过程如下："></a>攻击过程如下：</h4><p>（1）获得设备加密的大量的AES密文和对应加密的时间。</p>
 <p>（2）逐字节对密钥进行猜测，通过密文计算所猜密钥得到理论上最后一轮加密访问的cache_line数，即下图算法三。</p>
-<img src="/images/cachelinecnt.png" width="230px" height="250px">
+<img src="/images/cachelinecnt.png" width="400px" height="300px">
 
 <p>（3）将得到的cachelinecnt数与对应的加密时间作为两个变量，计算皮尔逊相关系数，相关性最高的猜测字节即为原始密钥的对应字节。下图为论文中所得到的结果，横坐标为猜测的密钥，纵坐标为对应皮尔逊系数，图中的尖峰即为攻击结果，k0-k15为密钥对应字节的编号。</p>
-<img src="/images/cachelinecnt_ans.png" width="250px" height="250px">
+<img src="/images/cachelinecnt_ans.png" width="350px" height="350px">
 
 <h4 id="复现代码："><a href="#复现代码：" class="headerlink" title="复现代码："></a>复现代码：</h4><p>首先是将文件中的密文读入，并处理成二维数组，方便后续处理。</p>
 <p>由于密文数据是将一个字节拆成两个十六进制的数字，并且转成按照对应值的字符而不是对应二进制分别存入两个字节（如密文0x4c，拆成4、c并转换成字符<code>&#39;4&#39;</code>和<code>&#39;c&#39;</code>分别存储），所以这一步略显麻烦。</p>
@@ -197,9 +197,9 @@
 <p>在外层用多重循环去调用就能得到所需要的值。</p>
 <p>然后再与对应时间做皮尔逊系数的计算就能得到所猜字节与对应密钥字节的相关性，这里我们使用的是python对应的库传入参数进行计算。</p>
 <p>原论文中的攻击使用100万个样本（时间+密文），论文给出的样本数量与成功率的关系如下图。</p>
-<img src="/images/cachelinecnt_rate.png" width="200px" height="200px">
+<img src="/images/cachelinecnt_rate.png" width="350px" height="350px">
 
-<p>我们首先指定样本数量为10,000，但是效果并不好，所以把样本数量改为500,000，写好脚本后就是漫长的等待过程了…</p>
+<p>我们首先指定样本数量为10,000，但是效果并不好，所以把样本数量改为500,000，写好脚本后等待步骤（1）中样本的生成…</p>
 <h4 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h4>
         </div>
         <footer class="article-footer">
@@ -207,7 +207,7 @@
 
 
 
-    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="cjyz70cox0008g1gopk9ml0fv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="cjyzh49k30008oggokbxt0cd4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
