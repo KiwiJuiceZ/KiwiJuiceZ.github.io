@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Zyh&#39;s site">
 <meta property="og:description" content="写在前面今天开始进行人工智能安全方面的学习，首先是找了白皮书来看，在白皮书里提到了这篇论文，于是在这里对这篇论文进行翻译，通过这种方式对论文进行阅读和理解。 由于要开始找题做项目，所以这篇的翻译就到此为止，这篇半成品也算是给自己留作纪念，虽然翻译的过程费了时间，不过也不是没有收获，尽管翻得不好，但是在这个过程中对一些知识有了最基本的认识，借机看了GAN，感觉还是对自己比较满意的。 尽管我没翻完，但">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T02:38:41.993Z">
+<meta property="og:updated_time" content="2019-08-06T07:51:45.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MalGAN">
 <meta name="twitter:description" content="写在前面今天开始进行人工智能安全方面的学习，首先是找了白皮书来看，在白皮书里提到了这篇论文，于是在这里对这篇论文进行翻译，通过这种方式对论文进行阅读和理解。 由于要开始找题做项目，所以这篇的翻译就到此为止，这篇半成品也算是给自己留作纪念，虽然翻译的过程费了时间，不过也不是没有收获，尽管翻得不好，但是在这个过程中对一些知识有了最基本的认识，借机看了GAN，感觉还是对自己比较满意的。 尽管我没翻完，但">
@@ -173,17 +173,14 @@
         <div class="article-entry" itemprop="articleBody">
             <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>今天开始进行人工智能安全方面的学习，首先是找了白皮书来看，在白皮书里提到了这篇论文，于是在这里对这篇论文进行翻译，通过这种方式对论文进行阅读和理解。</p>
 <p>由于要开始找题做项目，所以这篇的翻译就到此为止，这篇半成品也算是给自己留作纪念，虽然翻译的过程费了时间，不过也不是没有收获，尽管翻得不好，但是在这个过程中对一些知识有了最基本的认识，借机看了GAN，感觉还是对自己比较满意的。</p>
-<p>尽管我没翻完，但是我找到了别人看完了这篇论文之后的<a href="https://www.zybuluo.com/wuxin1994/note/881171" target="_blank" rel="noopener">心得</a></p>
+<p>尽管我没翻完，但是我找到了<a href="https://www.zybuluo.com/wuxin1994/note/881171" target="_blank" rel="noopener">别人对这篇论文的心得</a></p>
 <p>看着别人的心得，觉得自己还有很长的路要走啊。</p>
-<p>以下是原文的前一小部分的翻译。</p>
+<p>以下是原文的摘要。</p>
 <hr>
-<h3 id="论文名称：Generating-Adversarial-Malware-Examples-for-Black-Box-Attacks-Based-on-GAN"><a href="#论文名称：Generating-Adversarial-Malware-Examples-for-Black-Box-Attacks-Based-on-GAN" class="headerlink" title="论文名称：Generating Adversarial Malware Examples for Black-Box Attacks Based on GAN"></a>论文名称：Generating Adversarial Malware Examples for Black-Box Attacks Based on GAN</h3><h5 id="（基于GAN的黑盒测试敌对恶意软件样本生成）"><a href="#（基于GAN的黑盒测试敌对恶意软件样本生成）" class="headerlink" title="（基于GAN的黑盒测试敌对恶意软件样本生成）"></a>（基于GAN的黑盒测试敌对恶意软件样本生成）</h5><h4 id="来源：北京大学"><a href="#来源：北京大学" class="headerlink" title="来源：北京大学"></a>来源：北京大学</h4><h3 id="Abstact"><a href="#Abstact" class="headerlink" title="Abstact"></a>Abstact</h3><p>最近几年，机器学习已经被用作检测新型的恶意代码（malware），而恶意代码的作者有着强烈的积极性去攻击这些算法。恶意代码的作者通常没有机会了解恶意代码检测系统中使用的机器学习模型的详细结构和参数，因此他们只能进行黑盒攻击。这篇论文提出了一个生成对抗网络（Generative Adversarial Network），这个网络基于MalGAN算法生成的、可能会绕过黑盒恶意代码检测系统的恶意对抗代码样例。MalGAN使用一个替代检测器（substitute detector）去匹配（fit）黑盒恶意代码检测系统。一个生成网络被训练成最小化替代检测器预测的生成对抗样本的恶意率。MalGAN相对传统基于对抗样本生成算法的有事是MalGAN能使预测率降低到几乎为零，并且能使基于再训练的对抗样本的防御方法难以工作。</p>
-<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h3><p>近年来，许多基于机器学习的算法已经被提出要进行恶意代码的检测，这些检测从程序中提取特征，使用一种分类器在良性程序和恶意程序间进行分类。例如……</p>
-<p>大多数研究者把他们的努力聚焦在提高算法的检测结果（performance），但却忽视了算法的鲁棒性。通常来说，恶意软件的传播能使作者受益，因此，恶意软件的作者有足够的动力来对检测算法进行攻击。</p>
-<p>许多机器学习的算法在面对恶意攻击时非常脆弱……（未翻完）</p>
+<h3 id="论文名称：Generating-Adversarial-Malware-Examples-for-Black-Box-Attacks-Based-on-GAN"><a href="#论文名称：Generating-Adversarial-Malware-Examples-for-Black-Box-Attacks-Based-on-GAN" class="headerlink" title="论文名称：Generating Adversarial Malware Examples for Black-Box Attacks Based on GAN"></a>论文名称：Generating Adversarial Malware Examples for Black-Box Attacks Based on GAN</h3><h5 id="（基于GAN的黑盒测试敌对恶意软件样本生成）"><a href="#（基于GAN的黑盒测试敌对恶意软件样本生成）" class="headerlink" title="（基于GAN的黑盒测试敌对恶意软件样本生成）"></a>（基于GAN的黑盒测试敌对恶意软件样本生成）</h5><p><a href="https://arxiv.org/pdf/1702.05983.pdf" target="_blank" rel="noopener">论文源地址</a></p>
+<h3 id="Abstact"><a href="#Abstact" class="headerlink" title="Abstact"></a>Abstact</h3><p>最近几年，机器学习已经被用作检测新型的恶意代码（malware），而恶意代码的作者有着强烈的积极性去攻击这些算法。恶意代码的作者通常没有机会了解恶意代码检测系统中使用的机器学习模型的详细结构和参数，因此他们只能进行黑盒攻击。这篇论文提出了一个生成对抗网络（Generative Adversarial Network），这个网络基于MalGAN算法生成的、可能会绕过黑盒恶意代码检测系统的恶意对抗代码样例。MalGAN使用一个替代检测器（substitute detector）去匹配（fit）黑盒恶意代码检测系统。一个生成网络被训练成最小化替代检测器预测的生成对抗样本的恶意率。MalGAN相对传统基于对抗样本生成算法的有事是MalGAN能使预测率降低到几乎为零，并且能使基于再训练的对抗样本的防御方法难以工作。</p>
 <hr>
 <p>剩下内容简单概述可以看<a href="https://www.zybuluo.com/wuxin1994/note/881171" target="_blank" rel="noopener">这个博客</a>。</p>
-<p><a href="https://arxiv.org/pdf/1702.05983.pdf" target="_blank" rel="noopener">论文的源地址。</a></p>
 
         </div>
         <footer class="article-footer">
@@ -191,7 +188,7 @@
 
 
 
-    <a data-url="http://sduzhang.cn/2019/07/10/MalGAN/" data-id="cjyzh49jw0002oggovd71j57o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/07/10/MalGAN/" data-id="cjyzj00ki00026cgo6orn8gx0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -267,12 +264,12 @@
         "genre": "论文学习",
         "datePublished": "2019-07-10",
         "dateCreated": "2019-07-10",
-        "dateModified": "2019-07-27",
+        "dateModified": "2019-08-06",
         "url": "http://sduzhang.cn/2019/07/10/MalGAN/",
         "description": "写在前面今天开始进行人工智能安全方面的学习，首先是找了白皮书来看，在白皮书里提到了这篇论文，于是在这里对这篇论文进行翻译，通过这种方式对论文进行阅读和理解。
 由于要开始找题做项目，所以这篇的翻译就到此为止，这篇半成品也算是给自己留作纪念，虽然翻译的过程费了时间，不过也不是没有收获，尽管翻得不好，但是在这个过程中对一些知识有了最基本的认识，借机看了GAN，感觉还是对自己比较满意的。
 尽管我没翻完，但"
-        "wordCount": 57
+        "wordCount": 47
     }
 </script>
 
@@ -360,7 +357,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/论文学习/">论文学习</a></p>
-                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">复现AES时序攻击</a></p>
+                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">一种对GPU上AES加密的时序攻击</a></p>
                             <p class="item-date"><time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time></p>
                         </div>
                     </li>

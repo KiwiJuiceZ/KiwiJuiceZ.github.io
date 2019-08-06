@@ -12,17 +12,17 @@
     
         <meta name="keywords" content>
     
-    <meta name="description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址   这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。  论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影">
+    <meta name="description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址  这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。 论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影响">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对抗环境下深度学习的局限性">
 <meta property="og:url" content="http://sduzhang.cn/2019/07/16/AttackOnDL/index.html">
 <meta property="og:site_name" content="Zyh&#39;s site">
-<meta property="og:description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址   这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。  论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影">
+<meta property="og:description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址  这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。 论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影响">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T02:39:40.780Z">
+<meta property="og:updated_time" content="2019-08-06T07:45:44.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对抗环境下深度学习的局限性">
-<meta name="twitter:description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址   这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。  论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影">
+<meta name="twitter:description" content="论文 The Limitations of Deep Learning in Adversarial Settings论文源地址  这是一篇16年发表在S&amp;amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。 论文的前提为知道神经网络的结构和权重  从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数 生成对抗显著图，得到图像中点对不同分类预测的影响">
     
 
     
@@ -173,24 +173,18 @@
         <div class="article-entry" itemprop="articleBody">
             <h3 id="论文-The-Limitations-of-Deep-Learning-in-Adversarial-Settings"><a href="#论文-The-Limitations-of-Deep-Learning-in-Adversarial-Settings" class="headerlink" title="论文 The Limitations of Deep Learning in Adversarial Settings"></a>论文 The Limitations of Deep Learning in Adversarial Settings</h3><p><a href="https://arxiv.org/pdf/1511.07528.pdf" target="_blank" rel="noopener">论文源地址</a></p>
 <hr>
-<ul>
-<li><p>这是一篇16年发表在S&amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。</p>
-</li>
-<li><p>论文的前提为知道神经网络的结构和权重</p>
+<p>这是一篇16年发表在S&amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。</p>
+<p>论文的前提为知道神经网络的结构和权重</p>
 <ul>
 <li>从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数</li>
 <li>生成对抗显著图，得到图像中点对不同分类预测的影响</li>
 <li>使用启发式算法，选取影响最大的点进行更新</li>
 <li>不断重复这个过程，直到成功误分类或者达到能够忍受的最大失真率。</li>
 </ul>
-</li>
-<li><p>针对MNIST这个问题，研究者每次对一对点进行更新，因为这样的点能够互相弥补不足（单个点在增加想要得到的类的概率时，也可能增加其他类的概率），并且一对点要比单个点更容易满足条件（对单个点太严格）。但是这样做复杂度提升了（要遍历所有组合而不只是点）。</p>
-</li>
-<li><p>对于实验的结果，研究者统计了不同类数字之间的转化率，以及不同书记之间成功样本的平均失真率，统计出了失败样例和高比例失真样例的分布，进一步追踪高比例失真样例的变化过程，发现样例离开源类别需要的失真率很高，而到达新类需要的失真率类似，所以总失真率要高（两个过程都高）。原因为DNN对一些类的识别更自信。</p>
+<p>针对MNIST这个问题，研究者每次对一对点进行更新，因为这样的点能够互相弥补不足（单个点在增加想要得到的类的概率时，也可能增加其他类的概率），并且一对点要比单个点更容易满足条件（对单个点太严格）。但是这样做复杂度提升了（要遍历所有组合而不只是点）。</p>
+<p>对于实验的结果，研究者统计了不同类数字之间的转化率，以及不同书记之间成功样本的平均失真率，统计出了失败样例和高比例失真样例的分布，进一步追踪高比例失真样例的变化过程，发现样例离开源类别需要的失真率很高，而到达新类需要的失真率类似，所以总失真率要高（两个过程都高）。原因为DNN对一些类的识别更自信。</p>
 <p>更进一步，研究者定义了Hardness measure来度量从原类别到目标类的难易程度，Adversarial distance来定义样本X到目标类的对抗距离，同时用大量样本对抗距离的最小值（作者指出最小值也可以用其他操作，例如统计期望来代替）来衡量一个网络的鲁棒性，并且都给出了计算的数学公式。</p>
 <p>另外，作者在亚马逊众包网站做了统计，发现生成的对抗样本被识别的概率与原样本集相差不大，也就是说人基本上可以正确识别对抗样本。</p>
-</li>
-</ul>
 
         </div>
         <footer class="article-footer">
@@ -198,7 +192,7 @@
 
 
 
-    <a data-url="http://sduzhang.cn/2019/07/16/AttackOnDL/" data-id="cjyzh49k00005oggoqdq320ts" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/07/16/AttackOnDL/" data-id="cjyzj00kc00006cgopnebt03z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -274,17 +268,16 @@
         "genre": "论文学习",
         "datePublished": "2019-07-16",
         "dateCreated": "2019-07-16",
-        "dateModified": "2019-07-27",
+        "dateModified": "2019-08-06",
         "url": "http://sduzhang.cn/2019/07/16/AttackOnDL/",
         "description": "论文 The Limitations of Deep Learning in Adversarial Settings论文源地址
 
-
 这是一篇16年发表在S&amp;P上的论文，引用数很多，研究者通过引入很小的扰动，使前馈神经网络对图片误分类。
-
 论文的前提为知道神经网络的结构和权重
 
 从第一层隐藏层开始，一层一层计算训练的函数得到整个网络的前向导数
-生成对抗显著图，得到图像中点对不同分类预测的影"
+生成对抗显著图，得到图像中点对不同分类预测的影响
+"
         "wordCount": 26
     }
 </script>
@@ -379,7 +372,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/论文学习/">论文学习</a></p>
-                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">复现AES时序攻击</a></p>
+                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">一种对GPU上AES加密的时序攻击</a></p>
                             <p class="item-date"><time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time></p>
                         </div>
                     </li>

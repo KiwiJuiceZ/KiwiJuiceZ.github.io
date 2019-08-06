@@ -6,7 +6,7 @@
     
 
     
-    <title>复现AES时序攻击 | Zyh&#39;s site</title>
+    <title>一种对GPU上AES加密的时序攻击 | Zyh&#39;s site</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -14,15 +14,15 @@
     
     <meta name="description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复现AES时序攻击">
+<meta property="og:title" content="一种对GPU上AES加密的时序攻击">
 <meta property="og:url" content="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/index.html">
 <meta property="og:site_name" content="Zyh&#39;s site">
 <meta property="og:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sduzhang.cn/images/cachelinecnt_motivation.png">
-<meta property="og:updated_time" content="2019-08-06T06:59:35.992Z">
+<meta property="og:updated_time" content="2019-08-06T07:03:08.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复现AES时序攻击">
+<meta name="twitter:title" content="一种对GPU上AES加密的时序攻击">
 <meta name="twitter:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
 <meta name="twitter:image" content="http://sduzhang.cn/images/cachelinecnt_motivation.png">
     
@@ -151,7 +151,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-        复现AES时序攻击
+        一种对GPU上AES加密的时序攻击
         </h1>
     
 
@@ -207,7 +207,7 @@
 
 
 
-    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="cjyzh49k30008oggokbxt0cd4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="cjyzj00kq00086cgol6344ksd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -277,7 +277,7 @@
             "@type": "Person",
             "name": "Zyh"
         },
-        "headline": "复现AES时序攻击",
+        "headline": "一种对GPU上AES加密的时序攻击",
         "image": "http://sduzhang.cn/images/cachelinecnt_motivation.png",
         "keywords": "",
         "genre": "论文学习",
@@ -376,7 +376,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/论文学习/">论文学习</a></p>
-                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">复现AES时序攻击</a></p>
+                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">一种对GPU上AES加密的时序攻击</a></p>
                             <p class="item-date"><time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time></p>
                         </div>
                     </li>

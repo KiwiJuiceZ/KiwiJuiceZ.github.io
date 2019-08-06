@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Zyh&#39;s site">
 <meta property="og:description" content="写在前面由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。 在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。 我认为在学习过程中学习方法是件很重要的事，及时吸取经">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T02:40:53.948Z">
+<meta property="og:updated_time" content="2019-08-06T07:44:43.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对基于HPC数据进行分析的HMD的攻击">
 <meta name="twitter:description" content="写在前面由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。 在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。 我认为在学习过程中学习方法是件很重要的事，及时吸取经">
@@ -187,14 +187,8 @@
 </li>
 </ul>
 <h4 id="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"><a href="#该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。" class="headerlink" title="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"></a>该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。</h4><hr>
-<p>下面是论文前几段的详细内容 。</p>
+<p>下面是论文的摘要 。</p>
 <h3 id="Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors"><a href="#Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors" class="headerlink" title="Adversarial Attack on Microarchitectural Events based Malware Detectors"></a>Adversarial Attack on Microarchitectural Events based Malware Detectors</h3><h5 id="（对基于恶意软件检测器的微结构事件的对抗性攻击）"><a href="#（对基于恶意软件检测器的微结构事件的对抗性攻击）" class="headerlink" title="（对基于恶意软件检测器的微结构事件的对抗性攻击）"></a>（对基于恶意软件检测器的微结构事件的对抗性攻击）</h5><h5 id="论文来源：DAC-19"><a href="#论文来源：DAC-19" class="headerlink" title="论文来源：DAC 19"></a>论文来源：DAC 19</h5><h5 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a><a href="http://delivery.acm.org/10.1145/3320000/3317762/a164-Dinakarrao.pdf?ip=211.87.235.254&id=3317762&acc=ACTIVE%20SERVICE&key=BF85BBA5741FDC6E%2EBA9BBD89F2E1EC6A%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1562750269_2154adae8e8bfb8801bea4a809915fb6" target="_blank" rel="noopener">论文地址</a></h5><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><p>为了克服传统的基于软件的恶意软件检测技术导致的性能开销，使用机器学习分类器的硬件辅助恶意软件检测（Hardware-assisted Malware Detection，HMD）已经作为一种灵丹妙药出现来检测恶意应用、保护系统。HMD主要依靠通过硬件性能计数器（Hardware Performance Counters，HPCs）捕获生成的底层微结构事件，来区分良性软件和恶意软件。这个工作创建了一个对HMD系统的对抗性攻击，通过一个对抗性样例生成器应用在HPC跟踪（trace）中引入这种微扰来干预（tamper）系统的安全性。为了精巧地制作攻击，我们首先部署了一个对抗性样本预测器，预测对于给定应用程序在HMD被部署的机器学习（ML）分类器错误分类时的敌对HPC模式。进一步，由于攻击者没有直接访问在运行时生成的HPC的权限，因此我们基于对抗样本检测器的输出设计了一种包装在正常应用周围的对抗性样本生成器，用它来生成类似对抗检测器跟踪（trace）的HPC模式。由于对抗性样本生成器应用没有任何的恶意操作，它在传统的基于签名的恶意软件检测措施中无法被检测。用这种攻击方式，恶意软件检测率从82.76%降低到了18.04%。</p>
-<h4 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h4><p>恶意软件检测，对抗性学习，对抗性恶意软件，硬件安全，硬件辅助安全，机器学习</p>
-<h5 id="ACM-Reference-Format"><a href="#ACM-Reference-Format" class="headerlink" title="ACM Reference Format:"></a>ACM Reference Format:</h5><p>Sai Manoj Pudukotai Dinakarrao, Sairaj Amberkar, Sahil Bhat, Abhijitt Dhavlle, Hossein Sayadi, Avesta Sasan, Houman Homayoun and Setareh Rafatirad. 2019. Adversarial Attack on Microarchitectural Events based Malware Detectors . In The 56th Annual Design Automation Conference 2019 (DAC ’19), June 2–6, 2019, Las Vegas, NV, USA. ACM, New York, NY, USA, 6 pages. <a href="https://doi.org/10.1145/3316781.3317762" target="_blank" rel="noopener">https://doi.org/10.1145/3316781.3317762</a></p>
-<h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h4><p>现代计算机系统日益增加的复杂性导致了安全漏洞的增加，使这些系统成为复杂攻击的目标。攻击者利用存在的破坏系统的漏洞并部署恶意软件。Malware，也被称为恶意软件，是一个被攻击者设计用来在没有得到用户许可的情况下，为了有害的目的去感染计算机系统的程序或应用，例如窃取敏感信息，访问未经授权的数据，破坏文件，在设备上运行侵入性的程序来执行DoS（Denial-of-Service）攻击，中断必要服务来进行金融诈骗（financial fraud）。</p>
-<p>为了克服传统签名和基于语义的软件驱动的恶意软件检测技术 [11,19] 的开销和计算复杂度等缺点，HMD方法被 [5] 提出。HMD利用底层的微结构硬件事件和日志来检测和区分恶意软件。它的好处是用更小的硬件成本 [5] 降低了恶意软件检测延迟的数量级。最近的工作 [4-6, 20-22, 24, 25] 已经展现出，通过部署机器学习技术，利用HPCs捕获的底层微结构事件（特征），可以帮助区分良性和恶意软件。HPCs是一组内置在现代微处理器中的特殊用途寄存器，用于捕获硬件相关事件的追踪，例如LLC加载失败（miss）、分支指令、分支失败（miss）和执行应用程序（良性或恶意）时执行的指令。</p>
-<p>[5] 的工作是提出利用HPC数据进行恶意软件检测的前期工作之一，证明了离线ML算法在恶意软件分类中的有效性。采用多种ML算法（ANN， KNN）对安卓恶意软件进行检测，结果显示出了高检测精度。在 [7] 和 [24] 中的研究者讨论了通过在硬件性能计数器的信息中发现异常，在底层特征上采用无人管理的学习方法，来检测面向返回编程（ROP）和缓冲区溢出攻击的可行性。尽管无人管理的算法在检测心得恶意软件和攻击者进化方面更有效，但它们本质上是复杂的，需要更复杂的分析和计算开销。[15] 中的工作使用了逻辑回归把恶意软件分成多个类，并且训练了一个专门的分类器来检测恶意软件类。他们进一步使用专用集成学习来提高逻辑回归的准确性。为了增强性能，[15, 21] 中的工作提出了使用基于集成ML的解决方案，使用底层微处理器特性有效地检测恶意软件。这些基于ML的恶意软件检测器能在微处理器中实现，并且和软件基础的方法相比能显著降低开销，因为在硬件内部检测的速度非常快（几个时钟周期）[19, 25]。作为一个整体，可以看出最近大量的工作一直致力于采集底层微处理器事件给ML分类来保证（make）系统安全。</p>
-<p>另一方面，尽管ML分类器被部署在许多应用并且展现了对抗随机噪声的鲁棒性，暴露的漏洞还是表明，能通过在输入数据中添加特制的干扰修改或控制 ML分类器[8, 17, 18, 23]，这种数据通常称为敌对样本（Adversarial samples）。目前存在大量关于敌对攻击的研究，主要集中在具体的计算机视觉应用上 [8, 17, 18, 23]，其中特征的数量通常很大。……</p>
 
         </div>
         <footer class="article-footer">
@@ -202,7 +196,7 @@
 
 
 
-    <a data-url="http://sduzhang.cn/2019/07/11/a164-Dinakarrao/" data-id="cjyzh49k20007oggolz0rvzw9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/07/11/a164-Dinakarrao/" data-id="cjyzj00ko00076cgoxvlznhlg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -278,12 +272,12 @@
         "genre": "论文学习",
         "datePublished": "2019-07-11",
         "dateCreated": "2019-07-11",
-        "dateModified": "2019-07-27",
+        "dateModified": "2019-08-06",
         "url": "http://sduzhang.cn/2019/07/11/a164-Dinakarrao/",
         "description": "写在前面由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。
 在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。
 我认为在学习过程中学习方法是件很重要的事，及时吸取经"
-        "wordCount": 165
+        "wordCount": 60
     }
 </script>
 
@@ -377,7 +371,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/论文学习/">论文学习</a></p>
-                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">复现AES时序攻击</a></p>
+                            <p class="item-title"><a href="/2019/08/05/cachelinecnt-timing-attack/" class="title">一种对GPU上AES加密的时序攻击</a></p>
                             <p class="item-date"><time datetime="2019-08-05T10:57:47.000Z" itemprop="datePublished">2019-08-05</time></p>
                         </div>
                     </li>
