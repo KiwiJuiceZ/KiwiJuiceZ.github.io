@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sduzhang.cn/"/>
-  <updated>2019-08-06T07:03:08.767Z</updated>
+  <updated>2019-09-04T14:47:46.969Z</updated>
   <id>http://sduzhang.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用网站</title>
+    <link href="http://sduzhang.cn/2019/09/04/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99/"/>
+    <id>http://sduzhang.cn/2019/09/04/常用网站/</id>
+    <published>2019-09-04T14:41:10.000Z</published>
+    <updated>2019-09-04T14:47:46.969Z</updated>
+    
+    <content type="html"><![CDATA[<p>Chrome和Windows主题网站：<a href="https://www.themebeta.com/" target="_blank" rel="noopener">ThemeBeta</a></p><p>语言练手刷题网站：<a href="https://leetcode.com/problemset/all/" target="_blank" rel="noopener">LeetCode</a></p><p><a href="https://www.wps.cn/product/wpslinux#" target="_blank" rel="noopener">WPS Office 2019 For Linux</a></p><p>会议期刊查询网站： <a href="http://www.myhuiban.com/?lang=zh_cn" target="_blank" rel="noopener">会伴</a></p><p><a href="http://www.holehouse.org/mlclass/index.html" target="_blank" rel="noopener">机器学习入门笔记</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Chrome和Windows主题网站：&lt;a href=&quot;https://www.themebeta.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ThemeBeta&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;语言练手刷题网站：&lt;a href=&quot;https://lee
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>一种对GPU上AES加密的时序攻击</title>
@@ -92,9 +116,9 @@
     <link href="http://sduzhang.cn/2019/07/11/a164-Dinakarrao/"/>
     <id>http://sduzhang.cn/2019/07/11/a164-Dinakarrao/</id>
     <published>2019-07-11T10:55:27.000Z</published>
-    <updated>2019-08-06T07:44:43.920Z</updated>
+    <updated>2019-08-07T01:44:55.345Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。</p><p>在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。</p><p>我认为在学习过程中学习方法是件很重要的事，及时吸取经验教训是一件很重要的事，接下来我会学习对论文进行重点的摘要，重点关注它的研究对象、过程、成果以及思考是否能以此为一个切入点确定题目。</p><hr><p>读完了论文回来对论文的内容做一下总结，填一下坑。</p><p>时间： 2019-07-13</p><h4 id="论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击"><a href="#论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击" class="headerlink" title="论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击"></a>论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击</h4><ul><li><p>首先对要攻击的HMD逆向，模仿得到一个白盒的HMD（文中使用ML分类器进行模仿）。</p></li><li><p>然后使用敌对样本预测器来生成所需的（能使应用被误分类的HPC数据）。</p></li><li><p>最后用敌对样本生成器作为应用的一个独立线程产生HPC数据，从HPC来看该数据也是应用的数据，总的数据会误导HMD使其将应用误分类。</p><p>（实验中，HPC所捕获的总的数据与第二步预测的数据之间的误差 &lt; 3%）</p></li></ul><h4 id="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"><a href="#该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。" class="headerlink" title="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"></a>该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。</h4><hr><p>下面是论文的摘要 。</p><h3 id="Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors"><a href="#Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors" class="headerlink" title="Adversarial Attack on Microarchitectural Events based Malware Detectors"></a>Adversarial Attack on Microarchitectural Events based Malware Detectors</h3><h5 id="（对基于恶意软件检测器的微结构事件的对抗性攻击）"><a href="#（对基于恶意软件检测器的微结构事件的对抗性攻击）" class="headerlink" title="（对基于恶意软件检测器的微结构事件的对抗性攻击）"></a>（对基于恶意软件检测器的微结构事件的对抗性攻击）</h5><h5 id="论文来源：DAC-19"><a href="#论文来源：DAC-19" class="headerlink" title="论文来源：DAC 19"></a>论文来源：DAC 19</h5><h5 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a><a href="http://delivery.acm.org/10.1145/3320000/3317762/a164-Dinakarrao.pdf?ip=211.87.235.254&id=3317762&acc=ACTIVE%20SERVICE&key=BF85BBA5741FDC6E%2EBA9BBD89F2E1EC6A%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1562750269_2154adae8e8bfb8801bea4a809915fb6" target="_blank" rel="noopener">论文地址</a></h5><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><p>为了克服传统的基于软件的恶意软件检测技术导致的性能开销，使用机器学习分类器的硬件辅助恶意软件检测（Hardware-assisted Malware Detection，HMD）已经作为一种灵丹妙药出现来检测恶意应用、保护系统。HMD主要依靠通过硬件性能计数器（Hardware Performance Counters，HPCs）捕获生成的底层微结构事件，来区分良性软件和恶意软件。这个工作创建了一个对HMD系统的对抗性攻击，通过一个对抗性样例生成器应用在HPC跟踪（trace）中引入这种微扰来干预（tamper）系统的安全性。为了精巧地制作攻击，我们首先部署了一个对抗性样本预测器，预测对于给定应用程序在HMD被部署的机器学习（ML）分类器错误分类时的敌对HPC模式。进一步，由于攻击者没有直接访问在运行时生成的HPC的权限，因此我们基于对抗样本检测器的输出设计了一种包装在正常应用周围的对抗性样本生成器，用它来生成类似对抗检测器跟踪（trace）的HPC模式。由于对抗性样本生成器应用没有任何的恶意操作，它在传统的基于签名的恶意软件检测措施中无法被检测。用这种攻击方式，恶意软件检测率从82.76%降低到了18.04%。</p>]]></content>
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>由于需要确定研究的课题，我从DAC19的论文中按照关键词索引找到了这篇论文，并开始了对这篇论文的学习。</p><p>在学习过程中，学长觉得我做的事太庞大了，他觉得翻译全文是一件不必要的事情，同时我也意识到了这件事相当费时间，于是我决定暂停这项工作。两次翻译结果都是半途而废，但是翻译的过程却让我的思路得到了开拓，获得了知识也有了继续下去的热情和动力。</p><p>我认为在学习过程中学习方法是件很重要的事，及时吸取经验教训是一件很重要的事，接下来我会学习对论文进行重点的摘要，重点关注它的研究对象、过程、成果以及思考是否能以此为一个切入点确定题目。</p><hr><p>读完了论文回来对论文的内容做一下总结，填一下坑。</p><p>时间： 2019-07-13</p><h4 id="论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击"><a href="#论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击" class="headerlink" title="论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击"></a>论文摘要：对（基于HPC捕获的数据进行分析的HMD）的攻击</h4><ul><li><p>首先对要攻击的HMD逆向，模仿得到一个白盒的HMD（文中使用ML分类器进行模仿）。</p></li><li><p>然后使用敌对样本预测器来生成所需的（能使应用被误分类的HPC数据）。</p></li><li><p>最后用敌对样本生成器作为应用的一个独立线程产生HPC数据，从HPC来看该数据也是应用的数据，总的数据会误导HMD使其将应用误分类。</p><p>（实验中，HPC所捕获的总的数据与第二步预测的数据之间的误差 &lt; 3%）</p></li></ul><h4 id="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR（Logistic-Regression）的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"><a href="#该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR（Logistic-Regression）的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。" class="headerlink" title="该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR（Logistic Regression）的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。"></a>该论文中的逆向模仿的是基于ML分类器的HMD，同时论文用实验的方式验证对基于LR（Logistic Regression）的HMD也同样有效，进一步提出只要能够逆向HMD，论文提出的方法都有效。</h4><hr><p>下面是论文的摘要 。</p><h3 id="Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors"><a href="#Adversarial-Attack-on-Microarchitectural-Events-based-Malware-Detectors" class="headerlink" title="Adversarial Attack on Microarchitectural Events based Malware Detectors"></a>Adversarial Attack on Microarchitectural Events based Malware Detectors</h3><h5 id="（对基于恶意软件检测器的微结构事件的对抗性攻击）"><a href="#（对基于恶意软件检测器的微结构事件的对抗性攻击）" class="headerlink" title="（对基于恶意软件检测器的微结构事件的对抗性攻击）"></a>（对基于恶意软件检测器的微结构事件的对抗性攻击）</h5><h5 id="论文来源：DAC-19"><a href="#论文来源：DAC-19" class="headerlink" title="论文来源：DAC 19"></a>论文来源：DAC 19</h5><h5 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a><a href="http://delivery.acm.org/10.1145/3320000/3317762/a164-Dinakarrao.pdf?ip=211.87.235.254&id=3317762&acc=ACTIVE%20SERVICE&key=BF85BBA5741FDC6E%2EBA9BBD89F2E1EC6A%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1562750269_2154adae8e8bfb8801bea4a809915fb6" target="_blank" rel="noopener">论文地址</a></h5><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><p>为了克服传统的基于软件的恶意软件检测技术导致的性能开销，使用机器学习分类器的硬件辅助恶意软件检测（Hardware-assisted Malware Detection，HMD）已经作为一种灵丹妙药出现来检测恶意应用、保护系统。HMD主要依靠通过硬件性能计数器（Hardware Performance Counters，HPCs）捕获生成的底层微结构事件，来区分良性软件和恶意软件。这个工作创建了一个对HMD系统的对抗性攻击，通过一个对抗性样例生成器应用在HPC跟踪（trace）中引入这种微扰来干预（tamper）系统的安全性。为了精巧地制作攻击，我们首先部署了一个对抗性样本预测器，预测对于给定应用程序在HMD被部署的机器学习（ML）分类器错误分类时的敌对HPC模式。进一步，由于攻击者没有直接访问在运行时生成的HPC的权限，因此我们基于对抗样本检测器的输出设计了一种包装在正常应用周围的对抗性样本生成器，用它来生成类似对抗检测器跟踪（trace）的HPC模式。由于对抗性样本生成器应用没有任何的恶意操作，它在传统的基于签名的恶意软件检测措施中无法被检测。用这种攻击方式，恶意软件检测率从82.76%降低到了18.04%。</p>]]></content>
     
     <summary type="html">
     
