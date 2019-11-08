@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sduzhang.cn/"/>
-  <updated>2019-11-08T14:07:42.230Z</updated>
+  <updated>2019-11-08T14:27:12.447Z</updated>
   <id>http://sduzhang.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://sduzhang.cn/2019/11/08/%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF/"/>
     <id>http://sduzhang.cn/2019/11/08/对象指针修改错误/</id>
     <published>2019-11-08T13:36:40.000Z</published>
-    <updated>2019-11-08T14:07:42.230Z</updated>
+    <updated>2019-11-08T14:27:12.447Z</updated>
     
-    <content type="html"><![CDATA[<p>好久没更新了，啥也没写的几个月主要在忙学院足球队的事，发生了很多事情，我自己也受伤了。不过我最近还是很快乐——因为我发现写编译原理实验很有意思。有一说一，编译原理真的很有意思，建议所有计软方向的同学都来学习（滑稽）。快到编译原理实验截止日期了，于是最近这两天在写实验，实验的内容是写一个PL(0)文法的编译器，好像扯远了…</p><p>这次的主题是记录我在编写c++程序时一个致命错误，首先上省略后的伪代码。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production *p[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">queue</span>.in(p[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">while</span> (!<span class="built_in">queue</span>.empty()) &#123;</span><br><span class="line">    production *p1 = <span class="built_in">queue</span>.out();</span><br><span class="line">    change(p1);</span><br><span class="line">    <span class="keyword">if</span>(p1 in p) <span class="built_in">queue</span>.in(p1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>emmm这么省略后再看觉得自己能犯这样的错误简直太傻了。由于我以为修改了p1，实际上p1和p中某一个元素指向的是同一个对象，所以总有p1 in p，循环是个死循环。所以说当使用指针的时候一定要注意，如果你的语义需要修改指针指向的对象，一定要搞清楚指针和哪些标识符指向同一个对象，保险起见在修改时应该创建一个新的对象（除非就是要修改这个对象），使用指针的时候一定要注意！！！</p><p>否则下一次就是你要面对着几百行代码和有限的输出内容debug了（笑）。</p>]]></content>
+    <content type="html"><![CDATA[<p>好久没更新了，啥也没写的几个月主要在忙学院足球队的事，发生了很多事情，我自己也受伤了。不过我最近还是很快乐——因为我发现写编译原理实验很有意思。有一说一，编译原理真的很有意思，建议所有计软方向的同学都来学习（滑稽）。快到编译原理实验截止日期了，于是最近这两天在写实验，实验的内容是写一个PL(0)文法的编译器，好像扯远了…</p><p>这次的主题是记录我在编写c++程序时一个致命错误，首先上省略后的伪代码。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production *p[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">queue</span>.in(p[<span class="number">0</span>]);<span class="comment">//p[0]入队列</span></span><br><span class="line"><span class="keyword">while</span> (!<span class="built_in">queue</span>.empty()) &#123;</span><br><span class="line">    production *p1 = <span class="built_in">queue</span>.out();<span class="comment">//队列头出队列，第一次进入while循环时出队列的是p[0]</span></span><br><span class="line">    change(p1);<span class="comment">//对p1指向的对象进行修改</span></span><br><span class="line">    <span class="keyword">if</span>(p1 in p) <span class="built_in">queue</span>.in(p1);<span class="comment">//如果p1是p中的元素，p1入队列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>emmm这么省略后再看觉得自己能犯这样的错误简直太傻了。由于我以为修改了p1，实际上p1和p中某一个元素指向的是同一个对象，所以总有p1 in p，循环是个死循环。所以说当使用指针的时候一定要注意，如果你的语义需要修改指针指向的对象，一定要搞清楚指针和哪些标识符指向同一个对象，保险起见在修改时应该创建一个新的对象（除非就是要修改这个对象），使用指针的时候一定要注意！！！</p><p>否则下一次就是你要面对着几百行代码和有限的输出内容debug了（笑）。</p>]]></content>
     
     <summary type="html">
     
