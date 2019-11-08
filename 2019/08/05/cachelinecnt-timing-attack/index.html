@@ -20,7 +20,7 @@
 <meta property="og:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sduzhang.cn/images/cachelinecnt_motivation.png">
-<meta property="og:updated_time" content="2019-08-06T07:03:08.767Z">
+<meta property="og:updated_time" content="2019-11-08T14:03:29.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种对GPU上AES加密的时序攻击">
 <meta name="twitter:description" content="最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。 论文源地址 论文针对GPU上的AES实现，提出了一种攻击方式。 首先，他们的motivation是下图中加密时间和程序Cache Line请求数之间对应的线性关系。   攻击过程如下：（1）获得设备加密的大量的A">
@@ -200,14 +200,16 @@
 <img src="/images/cachelinecnt_rate.png" width="350px" height="350px">
 
 <p>我们首先指定样本数量为10,000，但是效果并不好，所以把样本数量改为500,000，写好脚本后等待步骤（1）中样本的生成…</p>
-<h4 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h4>
+<h4 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h4><p>结果是复现没有成功，没有得到论文中那么好的数据，我们甚至没有得到一组的正确结果，不过通过复现论文中的方法，我们对时序攻击有一点点了解了，聊以自慰。</p>
+<p>后来实验室就放暑假了（滑稽）。</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="ck2q7gw5c0004gtgomqrx7bfa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/" data-id="ck2q7nj4i0008qggox7b9zrlm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -283,7 +285,7 @@
         "genre": "论文学习",
         "datePublished": "2019-08-05",
         "dateCreated": "2019-08-05",
-        "dateModified": "2019-08-06",
+        "dateModified": "2019-11-08",
         "url": "http://sduzhang.cn/2019/08/05/cachelinecnt-timing-attack/",
         "description": "最近几天读了论文  A Complete Key Recovery Timing Attack on a GPU(2016 HPCA)，然后打算和学长一起复现一下这篇论文提出的攻击方法。
 论文源地址
