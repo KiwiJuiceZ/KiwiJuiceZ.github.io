@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sduzhang.cn/"/>
-  <updated>2019-11-08T14:27:12.447Z</updated>
+  <updated>2019-12-03T04:18:42.567Z</updated>
   <id>http://sduzhang.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ubuntu修改登录界面壁纸</title>
+    <link href="http://sduzhang.cn/2019/12/03/ubuntu%E4%BF%AE%E6%94%B9%E7%99%BB%E5%BD%95%E5%A3%81%E7%BA%B8/"/>
+    <id>http://sduzhang.cn/2019/12/03/ubuntu修改登录壁纸/</id>
+    <published>2019-12-03T04:02:52.000Z</published>
+    <updated>2019-12-03T04:18:42.567Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于ubuntu更新的时候有时候会修改gnome的配置文件，这种情况下就需要重新设置锁屏壁纸，由于偶尔会用到所以在这里记录一下方法。</p><p>首先执行命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/alternatives/gdm3.css</span><br></pre></td></tr></table></figure><p>然后修改lockDialogGroup块：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#lockDialogGroup</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#2c001e</span> <span class="built_in">url</span>(file:///usr/share/backgrounds/rime_sea.png);</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">  <span class="attribute">background-posion</span>: center; &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于ubuntu更新的时候有时候会修改gnome的配置文件，这种情况下就需要重新设置锁屏壁纸，由于偶尔会用到所以在这里记录一下方法。&lt;/p&gt;
+&lt;p&gt;首先执行命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+      <category term="工具包" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>c++对象指针修改错误</title>
     <link href="http://sduzhang.cn/2019/11/08/%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF/"/>
     <id>http://sduzhang.cn/2019/11/08/对象指针修改错误/</id>
     <published>2019-11-08T13:36:40.000Z</published>
-    <updated>2019-11-08T14:27:12.447Z</updated>
+    <updated>2019-12-03T04:17:11.267Z</updated>
     
     <content type="html"><![CDATA[<p>好久没更新了，啥也没写的几个月主要在忙学院足球队的事，发生了很多事情，我自己也受伤了。不过我最近还是很快乐——因为我发现写编译原理实验很有意思。有一说一，编译原理真的很有意思，建议所有计软方向的同学都来学习（滑稽）。快到编译原理实验截止日期了，于是最近这两天在写实验，实验的内容是写一个PL(0)文法的编译器，好像扯远了…</p><p>这次的主题是记录我在编写c++程序时一个致命错误，首先上省略后的伪代码。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production *p[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">queue</span>.in(p[<span class="number">0</span>]);<span class="comment">//p[0]入队列</span></span><br><span class="line"><span class="keyword">while</span> (!<span class="built_in">queue</span>.empty()) &#123;</span><br><span class="line">    production *p1 = <span class="built_in">queue</span>.out();<span class="comment">//队列头出队列，第一次进入while循环时出队列的是p[0]</span></span><br><span class="line">    change(p1);<span class="comment">//对p1指向的对象进行修改</span></span><br><span class="line">    <span class="keyword">if</span>(p1 in p) <span class="built_in">queue</span>.in(p1);<span class="comment">//如果p1是p中的元素，p1入队列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>emmm这么省略后再看觉得自己能犯这样的错误简直太傻了。由于我以为修改了p1，实际上p1和p中某一个元素指向的是同一个对象，所以总有p1 in p，循环是个死循环。所以说当使用指针的时候一定要注意，如果你的语义需要修改指针指向的对象，一定要搞清楚指针和哪些标识符指向同一个对象，保险起见在修改时应该创建一个新的对象（除非就是要修改这个对象），使用指针的时候一定要注意！！！</p><p>否则下一次就是你要面对着几百行代码和有限的输出内容debug了（笑）。</p>]]></content>
     
@@ -34,7 +59,7 @@
     
     </summary>
     
-      <category term="工具和技术" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF/"/>
+      <category term="工具包" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
     
     
   </entry>
@@ -44,7 +69,7 @@
     <link href="http://sduzhang.cn/2019/09/04/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99/"/>
     <id>http://sduzhang.cn/2019/09/04/常用网站/</id>
     <published>2019-09-04T14:41:10.000Z</published>
-    <updated>2019-09-18T12:25:06.218Z</updated>
+    <updated>2019-12-03T04:17:06.516Z</updated>
     
     <content type="html"><![CDATA[<p>Chrome主题网站：<a href="https://www.themebeta.com/" target="_blank" rel="noopener">ThemeBeta</a></p><p>语言练手刷题网站：<a href="https://leetcode.com/problemset/all/" target="_blank" rel="noopener">LeetCode</a></p><p><a href="https://scholar.google.com/" target="_blank" rel="noopener">谷歌学术</a></p><p><a href="https://www.wps.cn/product/wpslinux#" target="_blank" rel="noopener">WPS Office 2019 For Linux</a></p><p>会议期刊查询网站： <a href="http://www.myhuiban.com/?lang=zh_cn" target="_blank" rel="noopener">会伴</a></p><p><a href="http://www.holehouse.org/mlclass/index.html" target="_blank" rel="noopener">机器学习入门笔记</a></p>]]></content>
     
@@ -58,7 +83,7 @@
     
     </summary>
     
-      <category term="工具和技术" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF/"/>
+      <category term="工具包" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
     
     
   </entry>
@@ -92,7 +117,7 @@
     <link href="http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/"/>
     <id>http://sduzhang.cn/2019/07/27/Error-Permission-denied-publickey/</id>
     <published>2019-07-27T03:08:21.000Z</published>
-    <updated>2019-09-18T12:24:48.774Z</updated>
+    <updated>2019-12-03T04:17:24.574Z</updated>
     
     <content type="html"><![CDATA[<p>这个问题是ssh密钥没有配置好，客户端的私钥和服务器上的公钥不对应。</p><p>在使用<code>hexo d</code>命令时，命令行报错<code>Error: Permission denied (publickey)</code>，我很确定公钥已经正确放在<code>github</code>上，纠结了好久不知道是哪里出了问题。</p><p>今天我在<code>github help</code>上找到了<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">这个问题的解释</a>，官方文档上提示，如果没有使用 <code>sudo</code> 命令生成密钥，然后尝试<code>sudo git push</code>，此时使用的秘钥不是你想要使用的密钥，而应该是你用<code>sudo</code>命令生成的密钥。</p><p>我突然发现自己经常习惯使用<code>sudo</code>命令对文件进行各种操作，权限不够时直接将文件修改为777，导致很多文件的权限是混乱的。对于权限这方面的理解一塌糊涂，自己还是对Linux一无所知啊…</p><p>今天又花了一上午的时间将项目重新移植，幸好项目文件不大，要不然真的要吐血了。</p>]]></content>
     
@@ -106,7 +131,7 @@
     
     </summary>
     
-      <category term="工具和技术" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF/"/>
+      <category term="工具包" scheme="http://sduzhang.cn/categories/%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
     
     
   </entry>
